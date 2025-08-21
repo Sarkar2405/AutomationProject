@@ -19,8 +19,7 @@ public class Authentication {
 		passwordinputfield.sendKeys("SuperSecretPassword!");
 		driver.findElement(By.xpath("//button[@type='submit']")).click();
 		
-		String welcomeMessage= driver.findElement(By.xpath("//h4[@class='subheader']")).getText();
-		
+		String welcomeMessage= driver.findElement(By.xpath("//h4[@class='subheader']")).getText();	
 		String output= welcomeMessage.equals("Welcome to the Secure Area. When you are done click logout below.")?"Welcome message is Ok":"Fail";
 		System.out.println(output);
 				
@@ -29,4 +28,5 @@ public class Authentication {
 	
 
 }
+
 
