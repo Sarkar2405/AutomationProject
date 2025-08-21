@@ -34,8 +34,8 @@ public class DynamicControls {
 			Assert.assertTrue(true);
 		} else
 			Assert.assertTrue(false);
-
 	}
 
 }
+
 
