@@ -8,7 +8,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class AutomationDay2_DynamicControls {
+public class DynamicControls {
 
 	@Test
 	public void getDynamicControls() {
@@ -38,3 +38,4 @@ public class AutomationDay2_DynamicControls {
 	}
 
 }
+
