@@ -7,7 +7,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.Test;
 
 @Test
-public class Automation_Day1 {
+public class Authentication {
 	
 	public static void get() {
 		WebDriver driver= new ChromeDriver();
@@ -29,3 +29,4 @@ public class Automation_Day1 {
 	
 
 }
+
