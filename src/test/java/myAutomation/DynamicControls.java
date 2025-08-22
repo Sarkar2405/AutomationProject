@@ -21,7 +21,7 @@ public class DynamicControls {
 		driver.findElement(By.xpath("//input[@type='checkbox']")).click();
 		driver.findElement(By.xpath("//button[normalize-space()='Remove']")).click();
 
-		String checkboxMsg_remove = driver.findElement(By.id("message")).getText();
+		String checkboxMsg_remove = driver.findElement(By.xpath("//p[@id='message']")).getText();
 		if (checkboxMsg_remove.equalsIgnoreCase("It's gone!")) {
 			Assert.assertTrue(true);
 		} else
@@ -37,5 +37,6 @@ public class DynamicControls {
 	}
 
 }
+
 
 
