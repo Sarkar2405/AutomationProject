@@ -12,27 +12,42 @@ import org.testng.annotations.Test;
 
 public class PowerTools {
 	
-	
 	@Test
-	public void getPowerTools() {
+	public void getPowerTools() throws InterruptedException {
 		
 		WebDriver driver = new ChromeDriver();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-
-		driver.get("https://with-bugs.practicesoftwaretesting.com/#/category/power-tools");
+		driver.manage().window().maximize();
+		driver.get("https://with-bugs.practicesoftwaretesting.com/#/");
 		driver.findElement(By.xpath("//li[@class='nav-item dropdown']")).click();
-		driver.findElement(By.xpath("//a[@data-test='nav-power-tools']")).click();
-		
+		driver.findElement(By.xpath("//a[@data-test='nav-power-tools']")).click();	
 		WebElement sortList= driver.findElement(By.className("form-select"));
 		Select s= new Select(sortList);
 		//s.selectByValue("price,asc");
 		s.selectByVisibleText("Price (High - Low)");
+		//Thread.sleep(4000);
 		//String tooltext= driver.findElement(By.xpath("//div/a[5]/div[2]/h5")).getText();
 		String tooltext= driver.findElement(By.xpath("//a[@data-test='product-21']/div[2]/h5")).getText();
-		//System.out.println(tooltext);
+		System.out.println(tooltext);
 		Assert.assertEquals(tooltext, "Circular Saw");
 		//Assert.assertEquals(tooltext, "Belt Sanders");
 		
 	}
 
 }
+
+//Plier-->	
+	//div/a[2]
+	//div[@class='container']/a[2]
+	//div[@class='col-md-9']/div/a[2]
+	//a[@data-test='product-2']
+	//a[@href='#/product/2']
+
+//Thor Hammer-->
+	//div/a[9]
+	//div[@class='container']/a[9]
+	//div[@class='col-md-9']/div/a[9]
+	//a[@data-test='product-9']
+	//a[@href='#/product/9']
+	
+//abs xpath for unsplash element--> //html/body/app-root/app-footer/div/p/a[4]
