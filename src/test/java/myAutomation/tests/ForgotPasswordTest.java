@@ -13,7 +13,7 @@ public class ForgotPasswordTest extends CommonTests {
 		ForgotPasswordPage forgotpassword= new ForgotPasswordPage(driver);
 		forgotpassword.goToForgotPassword();
 		forgotpassword.checkForgotPasswordHeading();
-		forgotpassword.enterEmail("aishee@gmail.com");
+		forgotpassword.enterEmail();
 		forgotpassword.retrievePassword();
 		
 		ForgotPasswordFinalPage forgotpasswordfinal= new ForgotPasswordFinalPage(driver);
