@@ -4,6 +4,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
+import com.github.javafaker.Faker;
+
 public class ForgotPasswordPage {
 	
 	WebDriver driver;
@@ -27,7 +29,9 @@ public class ForgotPasswordPage {
 		Assert.assertEquals(forgot_password_heading_text, "Forgot Password");
 	}
 	
-	public void enterEmail(String email) {
+	public void enterEmail() {
+		Faker faker = new Faker();
+		String email = faker.internet().emailAddress();
 		driver.findElement(emailId_ele).sendKeys(email);
 	}
 	
