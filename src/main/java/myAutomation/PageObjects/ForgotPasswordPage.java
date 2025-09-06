@@ -8,6 +8,10 @@ public class ForgotPasswordPage {
 	
 	WebDriver driver;
 	
+	public ForgotPasswordPage(WebDriver driver){
+		this.driver= driver;
+	}
+	
 	By forgot_password_ele= By.linkText("Forgot Password");
 	By forgot_password_heading_text_ele= By.xpath("//div/h2");
 	By emailId_ele= By.id("email");
@@ -19,8 +23,8 @@ public class ForgotPasswordPage {
 	}
 	
 	public void checkForgotPasswordHeading() {
-		driver.findElement(By.xpath("forgot_password_heading_text_ele")).getText();
-		Assert.assertEquals(forgot_password_heading_text_ele, "Forgot Password");
+		String forgot_password_heading_text= driver.findElement(forgot_password_heading_text_ele).getText();
+		Assert.assertEquals(forgot_password_heading_text, "Forgot Password");
 	}
 	
 	public void enterEmail(String email) {
