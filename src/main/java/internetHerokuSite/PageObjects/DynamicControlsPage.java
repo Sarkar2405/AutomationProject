@@ -2,17 +2,17 @@ package internetHerokuSite.PageObjects;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.testng.Assert;
 
 import utils.WaitUtils;
 
 public class DynamicControlsPage {
 	
 	WebDriver driver;
+	WaitUtils waitutils;
 	
-	
-	public DynamicControlsPage(WebDriver driver) {
+	public DynamicControlsPage(WebDriver driver, WaitUtils waitutils) {
 		this.driver= driver;
+		this.waitutils= waitutils;
 	}
 	By checkbox_ele= By.xpath("//input[@type='checkbox']");
 	By remove_btn_ele= By.xpath("//button[@onclick='swapCheckbox()']");
@@ -20,16 +20,13 @@ public class DynamicControlsPage {
 	By msg_ele= By.xpath("//p[@id='message']");
 	
 	public String removeCheckBox() {
-	
-		WaitUtils wait = new WaitUtils(driver);
-		driver.findElement(checkbox_ele).click();
-		driver.findElement(remove_btn_ele).click();
 
-		wait.waitForElementInvisibility(driver.findElement(loading_ele));
+		waitutils.waitForElementClickable(checkbox_ele).click();
+		waitutils.waitForElementClickable(remove_btn_ele).click();
+		waitutils.waitForElementInvisibility(loading_ele);
 		String checkboxMsg_remove = driver.findElement(msg_ele).getText();
 		return checkboxMsg_remove;
 
 }
-
 
 }
