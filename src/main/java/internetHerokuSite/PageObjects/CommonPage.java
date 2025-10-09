@@ -2,7 +2,6 @@ package internetHerokuSite.PageObjects;
 import org.openqa.selenium.WebDriver;
 
 import utils.PageActions;
-import utils.WaitUtils;
 
 public class CommonPage {
 

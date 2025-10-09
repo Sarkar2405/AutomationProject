@@ -55,15 +55,21 @@ public class CommonTests {
 		}
 		driver.get(BaseUtils.getConfigValue("url"));
 		driver.manage().window().maximize();
-		//driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(Integer.valueOf(BaseUtils.getConfigValue("implicitwait"))));
-		
+		//driver.manage().timeouts().implicitlyWait
+		//(Duration.ofSeconds(Integer.valueOf(BaseUtils.getConfigValue("implicitwait"))));		
 	}
 	
-
 	@AfterMethod
 	public void endTest(ITestResult result) throws IOException {
 		if (result.getStatus() == ITestResult.FAILURE) {
 			ReportUtils.getLog().fail(result.getThrowable(),
+					MediaEntityBuilder.createScreenCaptureFromPath(
+							BaseUtils.getScreenshotPath(driver, result.getInstanceName().getClass().getSimpleName()
+									+ "." + result.getMethod().getMethodName()))
+							.build());
+		}
+		if (result.getStatus() == ITestResult.SUCCESS) {
+			ReportUtils.getLog().pass(result.getThrowable(),
 					MediaEntityBuilder.createScreenCaptureFromPath(
 							BaseUtils.getScreenshotPath(driver, result.getInstanceName().getClass().getSimpleName()
 									+ "." + result.getMethod().getMethodName()))

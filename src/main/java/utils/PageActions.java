@@ -10,10 +10,12 @@ public class PageActions {
 
 	WaitUtils waitUtils;
 	Actions act;
+	WebDriver driver;
 
 	public PageActions(WebDriver driver) {
 		waitUtils = new WaitUtils(driver);
 		act = new Actions(driver);
+		this.driver= driver;
 	}
 
 	public void click(By locator) {
@@ -36,6 +38,8 @@ public class PageActions {
 	public void enter(By locator, String text) {
 		try {
 			waitUtils.waitForElementVisibility(locator).sendKeys(text);
+			//act.click(driver.findElement(locator)).sendKeys(text);
+			//act.sendKeys(driver.findElement(locator), text);
 		} catch (Exception e) {
 			ReportUtils.getLog().fail("Failed to enter due to " + e.getMessage());
 		}

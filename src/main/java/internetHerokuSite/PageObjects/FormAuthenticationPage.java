@@ -2,20 +2,12 @@ package internetHerokuSite.PageObjects;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.testng.Assert;
 
-import utils.PageActions;
-import utils.ReportUtils;
-import utils.WaitUtils;
 
 public class FormAuthenticationPage extends CommonPage{
 	
-	WebDriver driver;
-	//PageActions action;
-	
 	public FormAuthenticationPage(WebDriver driver) {
-		super(driver);
-		this.driver= driver;	
+		super(driver);	
 	}
 
 	private By username_ele= By.id("username");
